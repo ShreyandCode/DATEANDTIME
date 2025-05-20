@@ -1,3 +1,3 @@
-# DateAndTime
-Fun And Lightweight Desktop Widget Made With Electron To Show Date And Time (Yes We Use Default Icons To Save Up On Your RAM!)
-Go to https://github.com/ShreyandCode/DATEANDTIME/releases/tag/dateandtimev2 for download⏬
+# 🕒DateAndTime Widget v2
+###Head to ![Downloads](https://github.com/shreyandcode/dateandtime/releases/tags/dateandtimev2/)
+![icon](https://github.com/user-attachments/assets/f9623c6b-1449-4911-8e01-d607ac38a1ca)
