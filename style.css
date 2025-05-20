@@ -1,0 +1,60 @@
+:root {
+    --text-color: #FFFFFF;
+    --background-color: rgba(40, 0, 80, 0.8);
+    --font-family: 'Arial, sans-serif';
+    --hr-line-color: #FFFFFF;
+    --hr-line-opacity: 0.5;
+    --hr-line-thickness: 1px;
+}
+body {
+    margin: 0; padding: 10px; /* Default overridden by JS or if containerPadding used*/
+    font-family: var(--font-family); background-color: var(--background-color); color: var(--text-color);
+    border-radius: 8px; overflow: hidden; user-select: none; -webkit-app-region: drag;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    box-sizing: border-box; height: 100vh; width: 100vw;
+}
+#widget-container {
+    padding: 10px 15px; /* Default, JS overrides based on settings.widgetLayout.containerPadding */
+    border: 2px dashed transparent; transition: border-color 0.3s ease;
+    box-sizing: border-box; display: flex; flex-direction: column; align-items: center;
+}
+#widget-container.adjusting { border-color: rgba(255, 255, 255, 0.5); }
+#time {
+    line-height: 1.1; letter-spacing: 1px; box-sizing: border-box;
+    margin-top: 5px; /* Default, JS will override based on settings.widgetLayout */
+    margin-bottom: 3px; /* Default, JS overrides from settings.widgetLayout.timeMarginBottom */
+    text-align: center;
+}
+#date {
+    line-height: 1.2; box-sizing: border-box;
+    margin-top: 3px; /* Default, JS overrides from settings.widgetLayout.dateMarginTop or timeMarginBottom */
+    margin-bottom: 5px; /* Default, JS overrides from settings.widgetLayout.dateMarginBottom */
+    text-align: center;
+}
+.widget-hr {
+    border: none; height: var(--hr-line-thickness); background-color: var(--hr-line-color);
+    opacity: var(--hr-line-opacity); width: 70%; border-radius: var(--hr-line-thickness);
+    margin: 3px auto; /* Default, JS overrides vertical part from settings.widgetLayout.hrMarginVertical */
+    box-sizing: border-box;
+}
+#adjust-mode-indicator {
+    position: absolute; bottom: 3px; left: 50%; transform: translateX(-50%);
+    font-size: 0.7em; padding: 2px 5px; background-color: rgba(0,0,0,0.4);
+    border-radius: 3px; color: var(--text-color);
+}
+/* style.css - Snippet focusing on .widget-hr */
+/* ... (:root, body, #widget-container, #time, #date styles from your last complete version) ... */
+
+.widget-hr {
+    border: none;
+    height: var(--hr-line-thickness);
+    background-color: var(--hr-line-color);
+    opacity: var(--hr-line-opacity);
+    /* width: 70%; */ /* MODIFIED: This is now mostly a fallback, JS controls it via inline style */
+                      /* You can remove it or keep it as a very basic default if JS fails. */
+    border-radius: var(--hr-line-thickness);
+    margin: /* value will be set by JS based on settings.widgetLayout.hrMarginVertical */ '3px auto'; /* JS also sets this based on settings */
+    box-sizing: border-box;
+}
+
+/* ... (rest of your style.css, e.g., #adjust-mode-indicator) ... */

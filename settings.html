@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Widget Settings</title>
+    <link rel="stylesheet" href="settings.css">
+</head>
+<body>
+    <div class="settings-container">
+        <header class="settings-header"><h1>DateandTime Settings</h1></header>
+        <main class="settings-content">
+            <section class="setting-card">
+                <h2>Appearance</h2>
+                <div class="setting-group"><label for="widgetMode">Widget Mode</label><select id="widgetMode"><option value="on-top-interactive">On Top, Interactive</option><option value="on-top-click-through">On Top, Click-Through</option><option value="standard-click-through">Standard Layer, Click-Through</option></select></div>
+                <div class="setting-group"><label for="textColor">Text Color</label><input type="color" id="textColor" value="#FFFFFF"></div>
+                <div class="setting-group color-alpha-group"><label for="backgroundColor">Background Color</label><input type="color" id="backgroundColor" value="#280050"><div class="alpha-slider-container"><label for="backgroundAlpha" class="alpha-label">Opacity</label><input type="range" id="backgroundAlpha" min="0" max="1" step="0.01" value="0.8"></div></div>
+            </section>
+            <section class="setting-card">
+                <h2>Layout & Sizing</h2>
+                <div class="setting-group checkbox-group"><input type="checkbox" id="autoResizeEnabled" checked><label for="autoResizeEnabled">Enable Auto-Resizing</label></div>
+                <div class="setting-group manual-size-inputs" id="manualSizeGroup" style="display:none;"><div class="inline-half"><label for="widgetWidth">Manual Width (px)</label><input type="number" id="widgetWidth" placeholder="350"></div><div class="inline-half"><label for="widgetHeight">Manual Height (px)</label><input type="number" id="widgetHeight" placeholder="200"></div></div>
+            </section>
+            <section class="setting-card">
+                <h2>Widget Internal Spacing</h2>
+                <div class="setting-group"><label for="widgetContainerPadding">Container Padding (CSS: padding)</label><input type="text" id="widgetContainerPadding" placeholder="10px 15px"></div>
+                <div class="setting-group"><label for="timeMarginBottom">Space below Time (CSS: margin-bottom)</label><input type="text" id="timeMarginBottom" placeholder="3px"></div>
+                <div class="setting-group"><label for="dateMarginTop">Space above Date (CSS: margin-top)</label><input type="text" id="dateMarginTop" placeholder="3px"></div>
+                <div class="setting-group"><label for="dateMarginBottom">Space below Date (CSS: margin-bottom)</label><input type="text" id="dateMarginBottom" placeholder="5px"></div>
+                <div class="setting-group"><label for="hrMarginVertical">HR Lines Vertical Margin (CSS: margin top/bottom)</label><input type="text" id="hrMarginVertical" placeholder="3px"></div>
+            </section>
+            <section class="setting-card">
+                <h2>Font Customization</h2>
+                <div class="setting-group"><label for="fontFamily">Global Font Family</label><input type="text" id="fontFamily" placeholder="e.g., Inter, Arial, sans-serif"></div>
+                <hr class="modern-divider"><h3 class="sub-heading">Time Font</h3>
+                <div class="setting-row"><div class="setting-group"><label for="timeFontSize">Size</label><input type="text" id="timeFontSize" placeholder="e.g., 3.5em"></div><div class="setting-group"><label for="timeFontWeight">Weight</label><select id="timeFontWeight"><option value="normal">Normal</option><option value="bold">Bold</option><option value="lighter">Lighter</option><option value="100">100</option><option value="200">200</option><option value="300">300</option><option value="400">400</option><option value="500">500</option><option value="600">600</option><option value="700">700</option><option value="800">800</option><option value="900">900</option></select></div><div class="setting-group"><label for="timeFontStyle">Style</label><select id="timeFontStyle"><option value="normal">Normal</option><option value="italic">Italic</option><option value="oblique">Oblique</option></select></div></div>
+                <hr class="modern-divider"><h3 class="sub-heading">Date Font</h3>
+                <div class="setting-row"><div class="setting-group"><label for="dateFontSize">Size</label><input type="text" id="dateFontSize" placeholder="e.g., 1.3em"></div><div class="setting-group"><label for="dateFontWeight">Weight</label><select id="dateFontWeight"><option value="normal">Normal</option><option value="bold">Bold</option><option value="lighter">Lighter</option><option value="100">100</option><option value="200">200</option><option value="300">300</option><option value="400">400</option><option value="500">500</option><option value="600">600</option><option value="700">700</option><option value="800">800</option><option value="900">900</option></select></div><div class="setting-group"><label for="dateFontStyle">Style</label><select id="dateFontStyle"><option value="normal">Normal</option><option value="italic">Italic</option><option value="oblique">Oblique</option></select></div></div>
+            </section>
+            <section class="setting-card">
+                <h2>Separator Lines</h2>
+                <div class="setting-group checkbox-group"><input type="checkbox" id="showHrLines" checked><label for="showHrLines">Show Lines</label></div>
+                <div class="setting-group"><label for="hrLineColor">Line Color</label><input type="color" id="hrLineColor" value="#FFFFFF"></div>
+                <div class="setting-group color-alpha-group"><label for="hrLineOpacity" class="alpha-label">Line Opacity</label><div class="alpha-slider-container"><input type="range" id="hrLineOpacity" min="0" max="1" step="0.01" value="0.5"></div></div>
+                <div class="setting-group"><label for="hrLineThickness">Line Thickness (e.g., "1px")</label><input type="text" id="hrLineThickness" placeholder="1px"></div>
+                <div class="setting-group">
+                    <label for="hrLineLength">Line Length (e.g., "70%", "100px")</label>
+                    <input type="text" id="hrLineLength" placeholder="70%">
+                </div>
+            </section>
+            <section class="setting-card">
+                <h2>Date & Time Formats</h2>
+                <div class="setting-group"><label for="timeFormatInput">Time Format String</label><input type="text" id="timeFormatInput" placeholder="e.g., HH:mm:ss"></div>
+                <div class="setting-group"><label for="dateFormatInput">Date Format String</label><input type="text" id="dateFormatInput" placeholder="e.g., dddd, MMMM D"></div>
+                <div class="format-info-toggle"><span id="toggleFormatInfo" role="button" tabindex="0">Show Formatting Placeholders</span></div>
+                <div class="format-legend" id="formatLegendContent" style="display:none;"><p><strong>Available Placeholders:</strong></p><div class="placeholder-columns"><div class="placeholder-column"><strong>Time:</strong><ul><li><code>H</code>: Hour (0-23)</li><li><code>HH</code>: Hour, 2-digit</li><li><code>h</code>: Hour, 12-hr</li><li><code>hh</code>: Hour, 12-hr, 2-digit</li><li><code>m</code>: Minute</li><li><code>mm</code>: Minute, 2-digit</li><li><code>s</code>: Second</li><li><code>ss</code>: Second, 2-digit</li><li><code>A</code>: AM/PM</li><li><code>a</code>: am/pm</li></ul></div><div class="placeholder-column"><strong>Date:</strong><ul><li><code>D</code>: Day</li><li><code>DD</code>: Day, 2-digit</li><li><code>M</code>: Month num</li><li><code>MM</code>: Month num, 2-digit</li><li><code>MMM</code>: Month, short</li><li><code>MMMM</code>: Month, full</li><li><code>YY</code>: Year, 2-digit</li><li><code>YYYY</code>: Year, 4-digit</li><li><code>d</code>: Day of week (0-6)</li><li><code>dd</code>: Day, min</li><li><code>ddd</code>: Day, short</li><li><code>dddd</code>: Day, full</li></ul></div></div></div>
+            </section>
+        </main>
+        <footer class="settings-footer"><button id="saveButton" class="button-primary">Save All Settings</button><p id="statusMessage"></p></footer>
+    </div>
+    <script src="settings.js"></script>
+</body>
+</html>

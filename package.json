@@ -1,15 +1,76 @@
 {
-  "name": "wallpaper",
-  "version": "1.0.0",
-  "main": "index.js",
+  "name": "dateandtime",
+  "productName": "DateandTime",
+  "version": "2.3.6",
+  "description": "A desktop date and time widget by Shrey&Code.",
+  "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "electron .",
+    "pack": "electron-builder --dir --win",
+    "dist": "electron-builder --win",
+    "dist:win": "electron-builder --win"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "electron",
+    "widget",
+    "date",
+    "time",
+    "desktop"
+  ],
+  "author": "Shrey&Code",
   "license": "ISC",
-  "description": "",
   "dependencies": {
-    "electron": "^35.0.0"
+    "electron-store": "^8.1.0"
+  },
+  "devDependencies": {
+    "electron": "^28.0.0",
+    "electron-builder": "^24.9.1"
+  },
+  "build": {
+    "appId": "com.shreyandcode.dateandtime",
+    "productName": "DateandTime",
+    "directories": {
+      "output": "dist_electron_windows"
+    },
+    "files": [
+      "main.js",
+      "index.html",
+      "renderer.js",
+      "style.css",
+      "preload.js",
+      "settings.html",
+      "settings.js",
+      "settings.css",
+      "settingsPreload.js",
+      "assets/**/*",
+      "node_modules/electron-store/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "assets/icon.ico",
+      "publisherName": "ShreyandCode"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "perMachine": false,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "runAfterFinish": true,
+      "shortcutName": "${productName}",
+      "include": "build/installer.nsh",
+      "installerIcon": "assets/icon.ico",
+      "uninstallerIcon": "assets/icon.ico",
+      "uninstallDisplayName": "${productName} Uninstaller",
+      "license": "LICENSE.txt"
+    }
   }
 }
